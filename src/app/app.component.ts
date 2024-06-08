@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {TelegramService} from "./services/tg-service/telegram.service";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,16 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'wisdom-of-arkad';
+
+  constructor(private telegram:TelegramService) {
+    this.telegram.ready();
+    this.telegram.MainButton.disable();
+  }
+  close():void{
+    this.telegram.close();
+  }
+
+  changeMain():void{
+    this.telegram.MainButton.enable();
+  }
 }
