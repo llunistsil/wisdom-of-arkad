@@ -13,9 +13,7 @@ export class AppComponent {
 
   constructor(private telegram:TelegramService) {
     this.telegram.ready();
-    this.telegram.MainButton.show();
-    this.telegram.BackButton.show();
-    this.telegram.MainButton.disable();
+    this.telegram.tg.expand();
   }
   close():void{
     this.telegram.close();
