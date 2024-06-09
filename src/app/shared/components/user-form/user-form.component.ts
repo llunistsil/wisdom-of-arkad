@@ -18,6 +18,7 @@ export class UserFormComponent{
   userData: User | null = null;
   @Input() set user(user:User|null){
     this.userData = user;
+    console.log(JSON.stringify(user))
     this.registerForm.patchValue({
       name:this.userData?.name,
       username:this.userData?.username

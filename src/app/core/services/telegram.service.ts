@@ -20,6 +20,7 @@ export class TelegramService {
     this.tg = this.window?.Telegram.WebApp;
   }
   getUserData():User|null {
+    console.log(JSON.stringify(this.tg.initDataUnsafe?.user));
     return this.tg.initDataUnsafe?.user;
   }
 
