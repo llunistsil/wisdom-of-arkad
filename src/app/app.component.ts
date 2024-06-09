@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {TelegramService} from "./services/tg-service/telegram.service";
+import {TelegramService} from "./core/services/telegram.service";
 
 @Component({
   selector: 'app-root',
@@ -12,14 +12,14 @@ import {TelegramService} from "./services/tg-service/telegram.service";
 export class AppComponent {
 
   constructor(private telegram:TelegramService) {
-    this.telegram.ready();
+    this.telegram.tg.ready();
     this.telegram.tg.expand();
   }
   close():void{
-    this.telegram.close();
+    this.telegram.tg.close();
   }
 
   changeMain():void{
-    this.telegram.MainButton.enable();
+    this.telegram.tg.MainButton.enable();
   }
 }

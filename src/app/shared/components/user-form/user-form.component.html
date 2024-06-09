@@ -1,0 +1,21 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" type="text" />
+    @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched){
+      <div>
+        Username is required.
+      </div>
+    }
+  </div>
+  <div>
+    <label for="username">Username:</label>
+    <input id="username" formControlName="username" type="text" />
+    @if (registerForm.get('username')?.invalid && registerForm.get('username')?.touched){
+      <div>
+        Valid username is required.
+      </div>
+    }
+  </div>
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+</form>
