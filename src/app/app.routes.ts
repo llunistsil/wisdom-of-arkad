@@ -4,14 +4,11 @@ import {UserPageComponent} from "./pages/user-page/user-page.component";
 
 export const routes: Routes = [
   {
-    path: "auth",
+    path: "",
     component: RegisterComponent,
   },
   {
     path: "user-page",
     component: UserPageComponent
-  }, {
-    path: "**",
-    redirectTo: "auth"
   }
 ];
