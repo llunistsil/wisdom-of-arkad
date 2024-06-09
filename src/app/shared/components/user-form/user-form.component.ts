@@ -20,7 +20,7 @@ export class UserFormComponent{
     this.userData = user;
     console.log(JSON.stringify(user))
     this.registerForm.patchValue({
-      name:this.userData?.name,
+      name:this.userData?.first_name,
       username:this.userData?.username
     })
   };
