@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import {UserFormComponent} from "../../shared/components/user-form/user-form.component";
-import {TgAuthService} from "../../core/services/tg-auth.service";
-import {ActivatedRoute} from "@angular/router";
 import {User} from "../../core/models/user.modul";
+import {TelegramService} from "../../core/services/telegram.service";
 
 @Component({
   selector: 'app-register',
@@ -17,8 +16,8 @@ export class RegisterComponent {
 
   public user:User | null = null
 
-  constructor(private tgAuthService:TgAuthService,private route:ActivatedRoute) {
-    this.user = this.tgAuthService.getUserData(this.route);
+  constructor(private tgService:TelegramService) {
+    this.user = this.tgService.getUserData();
   }
 
 }

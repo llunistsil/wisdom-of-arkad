@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
-import {ActivatedRoute} from "@angular/router";
 import {User} from "../models/user.modul";
 import {HttpClient} from "@angular/common/http";
 
@@ -25,12 +24,5 @@ export class TgAuthService {
   }
   registerUser(userData: any): Observable<any> {
     return this._http.post('/api/register', userData);
-  }
-  getUserData(route: ActivatedRoute):User|null {
-    route.queryParams.subscribe(params => {
-      const initData = params['tgWebAppData'];
-      this.userData = JSON.parse(initData);
-    })
-    return this.userData;
   }
 }

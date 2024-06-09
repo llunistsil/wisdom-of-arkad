@@ -1,5 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from "@angular/common";
+import {User} from "../models/user.modul";
 
 declare global {
   interface Window {
@@ -17,6 +18,9 @@ export class TelegramService {
   constructor(@Inject(DOCUMENT) private _document: Document) {
     this.window = this._document.defaultView;
     this.tg = this.window?.Telegram.WebApp;
+  }
+  getUserData():User|null {
+    return this.tg.initDataUnsafe?.user;
   }
 
 
